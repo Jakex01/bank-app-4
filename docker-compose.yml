@@ -8,14 +8,29 @@ services:
       - 'POSTGRES_USER=myuser'
     ports:
       - "5432:5432"
-#  bank:
-#    container_name: bank-app
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile
-#    ports:
-#      - "8080:8080"
-#
-#    depends_on:
-#      postgres:
-#        condition: service_healthy
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  bank-frontend:
+    container_name: frontend
+    build:
+      context: ./bank-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+
+  bank-backend:
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+

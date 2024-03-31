@@ -1,1 +1,64 @@
-<p>main-page works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank App Main Page with Animations</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+  <div class="logo">EasyBank</div>
+  <nav>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="main">
+  <h1>Welcome to BankApp</h1>
+  <p>Experience the next generation of banking.</p>
+  <button class="cta-button">Get Started</button>
+</div>
+
+<div class="features" id="services">
+  <div class="feature" style="animation-delay: 2s;">
+    <i class="feature-icon fas fa-bolt"></i>
+    <h2>Online Banking</h2>
+    <p>Manage your account online.</p>
+  </div>
+  <div class="feature" style="animation-delay: 2.2s;">
+    <i class="feature-icon fas fa-piggy-bank"></i>
+    <h2>Investments</h2>
+    <p>Grow your wealth.</p>
+  </div>
+  <div class="feature" style="animation-delay: 2.4s;">
+    <i class="feature-icon fas fa-shield-alt"></i>
+    <h2>Security</h2>
+    <p>Your security is our priority.</p>
+  </div>
+</div>
+
+
+<!--<footer>-->
+<!--  BankApp © 2024-->
+<!--</footer>-->
+<button class="slider-button" style="animation-delay: 2.5s">
+<span class="material-icons-outlined">
+keyboard_double_arrow_down
+</span>
+</button>
+
+</body>
+<script>
+  document.querySelector('.slider-button').addEventListener('click', function() {
+    document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+
+</html>
