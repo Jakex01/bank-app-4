@@ -9,9 +9,10 @@ body, html {
 header {
   background-color: #024;
   color: #fff;
-  padding: 1rem 0;
+  padding: 2rem 0;
   text-align: center;
-  position: fixed;
+  position: absolute;
+  left: 0;
   width: 100%;
   top: 0;
   z-index: 1000;
@@ -50,7 +51,7 @@ nav a {
 .main {
   text-align: center;
   padding: 5rem 1rem;
-  margin-top: 80px;
+  margin-top: 100px;
   opacity: 0;
   transform: translateY(50px);
   animation: fadeInUp 1s forwards 1s;
@@ -58,20 +59,44 @@ nav a {
 
 .cta-button {
   padding: 1rem 2rem;
-  background: #048;
+  background: #048; /* Preserving original color */
   color: #fff;
   border: none;
   cursor: pointer;
   margin-top: 2rem;
   opacity: 0;
-  animation: fadeIn 1s forwards 1.5s;
+  animation: fadeIn 1s forwards 1.5s, float 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
 }
 
+/* Original fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* New "float" animation for a subtle up and down movement */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Enhance interactivity with a hover effect */
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 72, 144, 0.3);
+}
+
+
 .features {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-around;
-  padding: 3rem 1rem;
   flex-wrap: wrap;
 }
 
@@ -79,7 +104,7 @@ nav a {
   padding: 1rem;
   text-align: center;
   width: 30%;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   opacity: 0;
   transform: scale(0.5);
   animation: fadeInScaleUp 1s forwards;
@@ -105,7 +130,8 @@ nav a {
 }
 
 .slider-button {
-  margin: 20px auto;
+
+  margin: 40px auto;
   padding: 10px;
   font-size: 100px;
   cursor: pointer;
@@ -123,7 +149,7 @@ nav a {
   animation: fadeInScaleUp 1s forwards;
 }
 .material-icons-outlined {
-  font-size: 48px;
+  font-size: 70px;
 }
 
 /* Bouncing animation */
@@ -191,5 +217,58 @@ nav a {
 @media (max-width: 768px) {
   .features .feature {
     width: 100%;
+  }
+}
+.about-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 2rem;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.about-us.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px; /* Adjust based on your design */
+}
+
+.about-text {
+  flex: 1;
+  padding-right: 2rem; /* Creates some space between the text and the image */
+}
+
+.about-img {
+  flex: 1;
+  text-align: right; /* Aligns the image to the right */
+}
+
+.about-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optional: Adds a slight rounding to the image corners for a modern look */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-text,
+  .about-img {
+    padding: 1rem;
+  }
+  .about-img {
+    text-align: center;
   }
 }

@@ -13,7 +13,7 @@
 <header>
   <div class="logo">EasyBank</div>
   <nav>
-    <ul>
+    <ul style="margin-top: 30px; padding-left: 15px">
       <li><a href="#services">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -48,17 +48,25 @@
 <!--<footer>-->
 <!--  BankApp © 2024-->
 <!--</footer>-->
-<button class="slider-button" style="animation-delay: 2.5s">
+<button class="slider-button" (click)="scrollToSection('about-us')" style="animation-delay: 2.5s; margin-bottom: 41rem">
 <span class="material-icons-outlined">
 keyboard_double_arrow_down
 </span>
 </button>
+<div class="about-us" id="about-us" [class.in-view]="isInView" style="animation-delay: 2.6s; margin-top: 55rem">
+  <div class="about-content">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>EasyBank has been at the forefront of financial innovation since 2000. Our mission is to make banking easy, accessible, and secure for everyone. We believe in providing our customers with the tools they need to manage their finances efficiently, whether that's through cutting-edge online banking, investment opportunities, or ensuring the utmost security of their funds.</p>
+    </div>
+    <div class="about-img">
+      <!-- Image placeholder; replace with an actual image URL -->
+      <img src="https://via.placeholder.com/400" alt="Banking Innovation">
+    </div>
+  </div>
+</div>
 
 </body>
-<script>
-  document.querySelector('.slider-button').addEventListener('click', function() {
-    document.querySelector('#services').scrollIntoView({ behavior: 'smooth' });
-  });
-</script>
+
 
 </html>

@@ -10,4 +10,6 @@ public interface BankClientRepository extends JpaRepository<BankClient, Long> {
     boolean existsBankClientByBankAccNumber(String bankAccNumber);
 
     Optional<BankClient> findBankClientByBankAccNumber(String bankAccNumber);
+
+    Optional<BankClient> findByEmail(String email);
 }
