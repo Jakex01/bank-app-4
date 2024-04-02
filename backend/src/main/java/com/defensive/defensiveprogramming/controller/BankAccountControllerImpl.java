@@ -43,6 +43,10 @@ public class BankAccountControllerImpl implements  BankAccountController{
     public ResponseEntity<List<Operation>> operationHistory(@RequestParam @Valid String bankAccount) {
         return bankAccountService.operationHistory(bankAccount);
     }
+    @GetMapping("/demo")
+    public String hellOWorld(){
+        return "Hello world";
+    }
 
 
 }
